@@ -16,3 +16,15 @@ RUN apk add --update --no-cache libstdc++ lapack-dev && \
     rm /usr/include/xlocale.h && \
     rm -r /root/.cache && \
     apk del .build-dependencies
+
+# Install Ruby
+RUN apk add --update --no-cache ruby ruby-bundler
+
+# Install Hugo
+ENV HUGO_VERSION 0.26
+ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
+
+# Download and Install hugo
+RUN mkdir /usr/local/hugo
+ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/hugo/
+RUN ln -s /usr/local/hugo/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/local/bin/hugo
