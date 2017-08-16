@@ -26,5 +26,4 @@ ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 
 # Download and Install hugo
 RUN mkdir /usr/local/hugo
-ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/hugo/
-RUN ln -s /usr/local/hugo/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/local/bin/hugo
+ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /usr/local/bin/hugo/
