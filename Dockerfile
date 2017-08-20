@@ -26,5 +26,6 @@ ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 
 # Download and Install hugo
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /tmp
-RUN mkdir -p /usr/local/sbin && \
-    mv /tmp/hugo /usr/local/sbin/hugo
+RUN mv /tmp/hugo /usr/bin/hugo
+
+CMD ["hugo"]
