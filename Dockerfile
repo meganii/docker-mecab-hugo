@@ -28,4 +28,7 @@ ENV HUGO_BINARY hugo_${HUGO_VERSION}_linux-64bit
 ADD https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY}.tar.gz /tmp
 RUN mv /tmp/hugo /usr/bin/hugo
 
+# Install Node.js
+RUN apk add --update --no-cache nodejs nodejs-npm
+
 CMD ["hugo"]
