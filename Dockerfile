@@ -18,7 +18,7 @@ RUN apk add --update --no-cache libstdc++ lapack-dev && \
     apk del .build-dependencies
 
 # Install Ruby
-RUN apk add --update --no-cache ruby ruby-bundler
+RUN apk add --update --no-cache ruby ruby-bundler ruby-rake
 
 # Install Hugo
 ENV HUGO_VERSION 0.26
