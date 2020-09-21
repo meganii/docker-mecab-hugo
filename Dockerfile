@@ -18,7 +18,15 @@ RUN apk add --update --no-cache libstdc++ lapack-dev && \
     apk del .build-dependencies
 
 # Install Ruby
-RUN apk add --update --no-cache ruby ruby-bundler ruby-rake
+RUN apk update && apk --update add --virtual build_deps \
+    ruby ruby-dev ruby-rake build-base ruby-dev libc-dev linux-headers \
+    postgresql-dev libxml2-dev libxslt-dev && \
+    gem install bundler --no-document && \
+    gem install nokogiri --no-document \
+    -- --use-system-libraries \
+    apk del  build_deps
+
+
 
 # Install Hugo
 ENV HUGO_VERSION 0.26
